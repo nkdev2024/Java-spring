@@ -31,19 +31,26 @@ public class DemoApplication {
             return "Greetings from Spring Boot!";
         }
          
-        @PostMapping("/create")
-    public String create(@RequestBody BodyData requestData) {
+        @PostMapping("/createUser")
+    public String createUser(@RequestBody BodyData requestData) {
+        String firstName = requestData.getFirstName();
+        return "Resource created successfully! Data received: " + firstName;
+    }
+
+        
+    @PostMapping("/getUser")
+    public String getUser(@RequestBody BodyData requestData) {
         String firstName = requestData.getFirstName();
         return "hResource created successfully! Data received: " + firstName;
     }
 
-    @PutMapping("/update")
-    public String update() {
+    @PutMapping("/updateUser")
+    public String updateUser() {
         return "Resource updated successfully!";
     }
 
-    @DeleteMapping("/delete")
-    public String delete() {
+    @DeleteMapping("/deleteUser")
+    public String deleteUser() {
         return "Resource deleted successfully!";
     }
         
