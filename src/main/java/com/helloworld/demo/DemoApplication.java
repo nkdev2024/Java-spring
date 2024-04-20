@@ -1,5 +1,8 @@
 package com.helloworld.demo;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -10,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.helloworld.demo.BobyData.BodyData;
+import com.helloworld.demo.services.UserService;
+
+// mvn spring-boot:run
 
 @SpringBootApplication
 public class DemoApplication {
@@ -21,9 +27,13 @@ public class DemoApplication {
     @RestController
     public static class HelloWorldController {
 
+        @Autowired
+        UserService userService;
+
         @GetMapping("/hello")
-        public String hello() {
-            return "Hello, World!";
+        public List<BodyData> hello() {
+            // return "Hello, World!";
+            return userService.getAllUsers();
         }
 
         @GetMapping("/greet")
