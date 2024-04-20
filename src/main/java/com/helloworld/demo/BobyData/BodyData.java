@@ -6,7 +6,7 @@ public class BodyData {
     private String password;
     private Number rollNumber;
 // Getters for firstName and rollNumber
-public String getFirstName() {
+public String getFirstName() { 
     return firstName;
 }
 
