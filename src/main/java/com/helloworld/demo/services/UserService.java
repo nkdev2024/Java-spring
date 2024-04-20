@@ -19,6 +19,13 @@ public class UserService {
         return smpData;
     }
 
+    
+    public BodyData saveUser(BodyData requestData){
+        BodyData smpData =  userRepository.save(requestData);
+        System.out.println(smpData);
+        return smpData;
+    }
+
     // Getting a specific user by category from collection
     // public BodyData getBookByCategory(Number rollNumber){
     //     BodyData user = userRepository.findByUserId(rollNumber);

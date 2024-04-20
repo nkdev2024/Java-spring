@@ -49,7 +49,11 @@ public class DemoApplication {
         String lastName = requestData.getLastName();
         String password = requestData.getPassword();
         Number rollNumber = requestData.getRollNumber();
-        return "hResource created successfully! Data received: " + firstName 
+         
+        // return "Hello, World!";
+        BodyData data = userService.saveUser(requestData);
+    
+        return data + " => Resource created successfully! Data received: " + firstName 
         + lastName + password + rollNumber;
     }
 
