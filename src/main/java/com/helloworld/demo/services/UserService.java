@@ -26,11 +26,13 @@ public class UserService {
         return smpData;
     }
 
-    // Getting a specific user by category from collection
-    // public BodyData getBookByCategory(Number rollNumber){
-    //     BodyData user = userRepository.findByUserId(rollNumber);
-    //     return user;
-    // }
+    public BodyData findUserByRollNumber(Number rollNumber) {
+        BodyData userData = userRepository.findByRollNumber(rollNumber);
+        System.out.println(userData);
+        return userData;
+    }
+
+    
  
     
 }

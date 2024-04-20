@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.helloworld.demo.BobyData.BodyData;
@@ -58,10 +59,11 @@ public class DemoApplication {
     }
 
         
-    @PostMapping("/getUser")
-    public String getUser(@RequestBody BodyData requestData) {
-        Number rollNumber = requestData.getRollNumber();
-        return "hResource created successfully! Data received: " + rollNumber;
+    @GetMapping("/getUser")
+    public BodyData getUser(@RequestParam("rollNumber") Number rollNumber) {
+        BodyData userData = userService.findUserByRollNumber(rollNumber);
+        System.out.println(userData);
+        return userData;
     }
 
     @PutMapping("/updateUser")

@@ -5,7 +5,5 @@ import com.helloworld.demo.BobyData.BodyData;
 
 public interface UserRepository extends MongoRepository<BodyData, ObjectId> {
 	// Need to add all the required methods here
-	// List<BodyData> findByName(String firstName);
-	// BodyData findByUserId(Number rollNumber);
-	//    List<BodyData> findAll();
+	BodyData findByRollNumber(Number rollNumber);
 }
