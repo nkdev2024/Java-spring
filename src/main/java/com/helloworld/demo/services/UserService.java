@@ -14,7 +14,9 @@ public class UserService {
     UserRepository userRepository;
 
     public List<BodyData> getAllUsers(){
-        return userRepository.findAll();
+        List<BodyData> smpData =  userRepository.findAll();
+        System.out.println(smpData);
+        return smpData;
     }
 
     // Getting a specific user by category from collection

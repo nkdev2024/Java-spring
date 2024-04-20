@@ -33,7 +33,9 @@ public class DemoApplication {
         @GetMapping("/hello")
         public List<BodyData> hello() {
             // return "Hello, World!";
-            return userService.getAllUsers();
+            List<BodyData> data = userService.getAllUsers();
+            System.out.println(data.toString());
+            return data;
         }
 
         @GetMapping("/greet")
