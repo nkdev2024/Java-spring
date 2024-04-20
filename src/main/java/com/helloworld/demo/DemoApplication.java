@@ -34,24 +34,30 @@ public class DemoApplication {
         @PostMapping("/createUser")
     public String createUser(@RequestBody BodyData requestData) {
         String firstName = requestData.getFirstName();
-        return "Resource created successfully! Data received: " + firstName;
+        String lastName = requestData.getLastName();
+        String password = requestData.getPassword();
+        Number rollNumber = requestData.getRollNumber();
+        return "hResource created successfully! Data received: " + firstName 
+        + lastName + password + rollNumber;
     }
 
         
     @PostMapping("/getUser")
     public String getUser(@RequestBody BodyData requestData) {
-        String firstName = requestData.getFirstName();
-        return "hResource created successfully! Data received: " + firstName;
+        Number rollNumber = requestData.getRollNumber();
+        return "hResource created successfully! Data received: " + rollNumber;
     }
 
     @PutMapping("/updateUser")
-    public String updateUser() {
-        return "Resource updated successfully!";
+    public String updateUser(@RequestBody BodyData requestData) {
+        Number rollNumber = requestData.getRollNumber();
+        return "Resource updated successfully!" + rollNumber;
     }
 
     @DeleteMapping("/deleteUser")
-    public String deleteUser() {
-        return "Resource deleted successfully!";
+    public String deleteUser(@RequestBody BodyData requestData) {
+        Number rollNumber = requestData.getRollNumber();
+        return "Resource deleted successfully!"+ rollNumber;
     }
         
     }
