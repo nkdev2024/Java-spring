@@ -57,6 +57,16 @@ public class DemoApplication {
     
         return " => Resource created successfully! Data received: " ;
     }
+ 
+
+    // get all users
+    @GetMapping("/getAllusers")
+    public List<BodyData> getAllUserss() {
+        // return "Hello, World!";
+        List<BodyData> data = userService.getAllUsers();
+        System.out.println(data.toString());
+        return data;
+    }
 
         
     @GetMapping("/getUser")
