@@ -46,16 +46,16 @@ public class DemoApplication {
          
         @PostMapping("/createUser")
     public String createUser(@RequestBody BodyData requestData) {
-        String firstName = requestData.getFirstName();
-        String lastName = requestData.getLastName();
-        String password = requestData.getPassword();
-        Number rollNumber = requestData.getRollNumber();
+        // String userId = requestData.getUserId();
+        // String firstName = requestData.getFirstName();
+        // String lastName = requestData.getLastName();
+        // String password = requestData.getPassword();
+        // Number rollNumber = requestData.getRollNumber();
          
         // return "Hello, World!";
         BodyData data = userService.saveUser(requestData);
     
-        return data + " => Resource created successfully! Data received: " + firstName 
-        + lastName + password + rollNumber;
+        return " => Resource created successfully! Data received: " ;
     }
 
         

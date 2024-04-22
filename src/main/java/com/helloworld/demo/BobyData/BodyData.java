@@ -3,10 +3,12 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Users")
+
+
+@Document(collection = "users")
 public class BodyData {
     @Id
-    private ObjectId _id;
+    private String userId;
     private String firstName;
     private String lastName;
     private String password;
@@ -14,8 +16,8 @@ public class BodyData {
 
 
 // Getters Function
-public ObjectId getUserId() { 
-    return _id;
+public String getUserId() { 
+    return userId;
 }
 
 public String getFirstName() { 
@@ -35,6 +37,10 @@ public Number getRollNumber() {
 }
 
 // setter function
+
+public void setUserId(String userId) {
+    this.userId = userId;
+}
 
 public void setFirstName(String firstName) {
     this.firstName = firstName;
