@@ -50,6 +50,10 @@ public class UserService {
         return userRepository.save(existingUser);
     }
 
+    public String deleteUserByrollNumber(int rollNumber){
+        userRepository.deleteByRollNumber(rollNumber);
+        return rollNumber+" task deleted from dashboard ";
+    }
     
  
     

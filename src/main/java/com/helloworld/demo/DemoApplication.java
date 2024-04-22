@@ -86,9 +86,8 @@ public class DemoApplication {
     }
 
     @DeleteMapping("/deleteUser")
-    public String deleteUser(@RequestBody BodyData requestData) {
-        Number rollNumber = requestData.getRollNumber();
-        return "Resource deleted successfully!"+ rollNumber;
+    public String deleteTask(@RequestParam("rollNumber") int rollNumber){
+        return userService.deleteUserByrollNumber(rollNumber);
     }
         
     }
