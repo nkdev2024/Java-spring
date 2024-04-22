@@ -54,18 +54,18 @@ public class JwtService {
 
 
 
-    public String GenerateToken(String username){
+    public String GenerateToken(String firstName){
         Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, username);
+        return createToken(claims, firstName);
     }
 
 
 
-    private String createToken(Map<String, Object> claims, String username) {
+    private String createToken(Map<String, Object> claims, String firstName) {
 
         return Jwts.builder()
                 .setClaims(claims)
-                .setSubject(username)
+                .setSubject(firstName)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis()+1000*60*1))
                 .signWith(getSignKey(), SignatureAlgorithm.HS256).compact();
