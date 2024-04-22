@@ -26,7 +26,9 @@ public class UserService {
         return smpData;
     }
 
-    public BodyData findUserByRollNumber(Number rollNumber) {
+    public BodyData findUserByRollNumber(int rollNumber) {
+        System.out.println("===========");
+        System.out.println(rollNumber);
         BodyData userData = userRepository.findByRollNumber(rollNumber);
         System.out.println(userData);
         return userData;

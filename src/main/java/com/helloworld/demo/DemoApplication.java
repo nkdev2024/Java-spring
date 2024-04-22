@@ -53,7 +53,7 @@ public class DemoApplication {
         // Number rollNumber = requestData.getRollNumber();
          
         // return "Hello, World!";
-        BodyData data = userService.saveUser(requestData);
+         userService.saveUser(requestData);
     
         return " => Resource created successfully! Data received: " ;
     }
@@ -69,8 +69,9 @@ public class DemoApplication {
     }
 
         
-    @GetMapping("/getUser")
-    public BodyData getUser(@RequestParam("rollNumber") Number rollNumber) {
+    @GetMapping("/getUserByrollNumber")
+    public BodyData getUser(@RequestParam("rollNumber") int rollNumber) {
+        System.out.println(rollNumber);
         BodyData userData = userService.findUserByRollNumber(rollNumber);
         System.out.println(userData);
         return userData;

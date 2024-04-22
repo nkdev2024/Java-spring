@@ -1,5 +1,4 @@
 package com.helloworld.demo.BobyData;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,7 +11,7 @@ public class BodyData {
     private String firstName;
     private String lastName;
     private String password;
-    private Number rollNumber;
+    private int rollNumber;
 
 
 // Getters Function
@@ -32,7 +31,7 @@ public String getPassword() {
     return password;
 }
 
-public Number getRollNumber() {
+public int getRollNumber() {
     return rollNumber;
 }
 
@@ -54,7 +53,7 @@ public void setPassword(String password) {
     this.password = password;
 }
 
-public void setRollNumber(Number rollNumber) {
+public void setRollNumber(int rollNumber) {
     this.rollNumber = rollNumber;
 }
 
