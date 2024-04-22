@@ -34,6 +34,22 @@ public class UserService {
         return userData;
     }
 
+    public BodyData updateUser(BodyData requestData){
+        System.out.println("************");
+        System.out.println(requestData.getFirstName());
+        //get the existing document from DB
+        // populate new value from request to existing object/entity/document
+        BodyData existingUser = userRepository.findByRollNumber(requestData.getRollNumber());
+
+        System.out.println("====================");
+        System.out.println(existingUser.getFirstName());
+        
+        existingUser.setFirstName(requestData.getFirstName());
+        existingUser.setLastName(requestData.getLastName());
+        existingUser.setRollNumber(requestData.getRollNumber());
+        return userRepository.save(existingUser);
+    }
+
     
  
     

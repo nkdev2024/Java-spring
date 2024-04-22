@@ -78,9 +78,11 @@ public class DemoApplication {
     }
 
     @PutMapping("/updateUser")
-    public String updateUser(@RequestBody BodyData requestData) {
-        Number rollNumber = requestData.getRollNumber();
-        return "Resource updated successfully!" + rollNumber;
+    public BodyData updateUser(@RequestBody BodyData requestData) {
+        // Number rollNumber = requestData.getRollNumber();
+        return userService.updateUser(requestData);
+
+        // return "Resource updated successfully!" + rollNumber;
     }
 
     @DeleteMapping("/deleteUser")
