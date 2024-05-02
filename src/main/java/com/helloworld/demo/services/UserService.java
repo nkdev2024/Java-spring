@@ -1,14 +1,24 @@
 package com.helloworld.demo.services;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.helloworld.demo.BobyData.BodyData;
 import com.helloworld.demo.repository.UserRepository;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 @Service
 public class UserService {
+
+    private final String UPLOAD_DIR = "src/main/java/com/helloworld/demo/services/uploads/";
 
     @Autowired
     UserRepository userRepository;
@@ -55,6 +65,11 @@ public class UserService {
         return rollNumber+" task deleted from dashboard ";
     }
     
- 
+    public ResponseEntity<String>  fileUploadSer(MultipartFile file) throws IOException{
+        byte[] bytes = file.getBytes();
+        Path path = Paths.get(UPLOAD_DIR + file.getOriginalFilename());
+        Files.write(path, bytes);
+        return ResponseEntity.status(HttpStatus.OK).body("File uploaded successfully");
+    }
     
 }
