@@ -21,10 +21,12 @@ import org.springframework.beans.factory.annotation.Value;
 @Service
 public class UserService {
 
-    @Value("${upload.dir}")
-    private String UPLOAD_DIR;
+    @Value("${file.upload-dir}")
+    // private String UPLOAD_DIR;
     
   //  private final String UPLOAD_DIR = "src/main/java/com/helloworld/demo/services/uploads/";
+
+  private final String UPLOAD_DIR = "";
 
     @Autowired
     UserRepository userRepository;
