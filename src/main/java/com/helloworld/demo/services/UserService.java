@@ -15,10 +15,16 @@ import com.helloworld.demo.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import org.springframework.beans.factory.annotation.Value;
+
+
 @Service
 public class UserService {
 
-    private final String UPLOAD_DIR = "src/main/java/com/helloworld/demo/services/uploads/";
+    @Value("${upload.dir}")
+    private String UPLOAD_DIR;
+    
+  //  private final String UPLOAD_DIR = "src/main/java/com/helloworld/demo/services/uploads/";
 
     @Autowired
     UserRepository userRepository;
